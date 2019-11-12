@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>IRR Calculator</title>
+<link href="data:image/x-icon;base64,AAABAAEAEBAQAAAAAAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAvy5gAAAAAADMAKwAyy5gAM8uYAF/LmwAyzJkAM8yZADUALQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAERERERERERERERERERERERERAAAAARERERABEREAEREREBISEhAREREQEREREBERERASEhIQEREREBERERAREREQEhISEBERERAREREQEREREBgiIhAREREQEiIiEBERERABEREAEREREWc0UAERERERERERERERERERERERERH//wAA//8AAPAfAADnzwAA6q8AAO/vAADqrwAA7+8AAOqvAADv7wAA6C8AAOgvAADnzwAA8B8AAP//AAD//wAA" rel="icon" type="image/x-icon" />
+<link rel="stylesheet" href="http://localhost:8080/PIMCalculator/IRR.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Raleway:200'>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+<script type="text/javascript" src="jquery-1.9.js"></script>
+ <script>
+        var generateTextBoxes = function( qty, container ) {
+            if (container) {
+                for (var i = 1; i <= qty; i++ ) {
+                    $('<label for="box-'+i+'">Net Cash flow for Year '+i+'</label>&nbsp;<input id="box-'+i+'" name="box-'+i+'" type="text" class="form-control" /><p>"').appendTo( container );
+                }
+            }
+        }
+        var init = function() {
+            $('#btnGenBoxes').on('click', function() {
+                generateTextBoxes( $('#box-0').val(), $('#putThemHere') );
+            });
+        }
+        function clearBox(elementID)
+        {
+            document.getElementById(elementID).innerHTML = "";
+        }
+       
+        window.onload = init;
+    </script>
+    <style>
+   button{
+	 cursor: pointer;
+  width: 200px;
+   border-radius: 10px;
+  border: 1px solid #fff;
+  background: #58d;
+  color: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+  font-size: 15px;
+    box-shadow: 0 0 20px 5px rgba(100, 100, 255, 0.4);
+    
+}
+button:hover{
+	background: #ccf;
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+}
+button:active{
+	 box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+    </style>
+</head>
+<body>
+<div class=container>
+<form id=boxlayout action="IRRServlet" method="post">
+<h1>IRR Calculator</h1>
+<p>
+</p>
+<div>
+    <label>Enter a value for initial investment</label>
+    <input type="number" class="form-control" name="I" >
+  </div>
+  <p></p>
+  
+   <h4>Net Cash Flow</h4>
+   
+
+    <br>
+    <label  for="box-0">How many years will have a Net Cash Flow? </label> &nbsp;
+    <div class="input-group mb-3">
+   <input type="text" id="box-0" name="box-0" class=form-control /> 
+     <div class="input-group-append">
+    <button class="btn btn-outline-primary" type="button" id="btnGenBoxes" value="Geneate text boxes">Generate years</button>
+  </div>
+   </div>
+    
+    
+    <div id="putThemHere"></div>
+   
+  	<button type="reset" onclick="clearBox('putThemHere')">Reset</button>
+     <button name="submit" type="submit" data-submit="...Sending">Submit</button> 
+</form>
+
+
+
+
+</div>
+</body>
+</html>

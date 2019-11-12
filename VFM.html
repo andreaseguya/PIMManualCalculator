@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="data:image/x-icon;base64,AAABAAEAEBAQAAAAAAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAvy5gAAAAAADMAKwAyy5gAM8uYAF/LmwAyzJkAM8yZADUALQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAERERERERERERERERERERERERAAAAARERERABEREAEREREBISEhAREREQEREREBERERASEhIQEREREBERERAREREQEhISEBERERAREREQEREREBgiIhAREREQEiIiEBERERABEREAEREREWc0UAERERERERERERERERERERERERH//wAA//8AAPAfAADnzwAA6q8AAO/vAADqrwAA7+8AAOqvAADv7wAA6C8AAOgvAADnzwAA8B8AAP//AAD//wAA" rel="icon" type="image/x-icon" />
+<title>  VFM Calculator</title>
+<link rel="stylesheet" href="http://localhost:8080/PIMCalculator/NPVStyle.css">
+ <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Raleway:200'>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<style>
+img{
+ border-radius: 10px;
+  border: 1px solid #fff;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+
+</style>
+</head>
+<body>
+<div class="container">  
+  <form id="contact" action="EOCKServlet" method="post">
+    <h1> Value for Money (VfM) Calculator</h1>
+    
+    <fieldset>
+    <p><img src="EOCK.PNG" alt="Model Equation" width= 200px height=100px /> </p>
+  <div class="form-group">
+    <label for="formGroupExampleInput">What year is being calculated?</label>
+    <input type="number" class="form-control" name="YearOfInput" placeholder="Year of Input">
+  </div>
+   <div class="form-group">
+    <label for="formGroupExampleInput">The supply elasticity of foreign funds</label>
+    <input type="number" class="form-control" name="Ef" placeholder=" Ef">
+    
+  </div>
+  
+  <div class="form-group">
+    <label for="formGroupExampleInput">The supply elasticity of household savings</label>
+    <input type="number" class="form-control" name="Er" placeholder=" Er">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput"> The rate of time preference to savers </label>
+    <input type="number" class="form-control" name="y" placeholder=" y">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput">  The cost of foreign savings  </label>
+    <input type="number" class="form-control" name="mcf" placeholder=" mcf">
+  </div>
+   <div class="form-group">
+    <label for="formGroupExampleInput"> The elasticity of demand for capital relative to changes in the interest rate </label>
+    <input type="number" class="form-control" name="n" placeholder="n">
+  </div>
+  <div class="form-group">
+    <label for="formGroupExampleInput2">  The total saving available in the economy </label>
+    <input type="number" class="form-control" name="St" placeholder="St">
+    
+  </div>
+  
+  <div class="form-group">
+    <label for="formGroupExampleInput2">The contribution to the total savings by households </label>
+    <input type="number" class="form-control" id="formGroupExampleInput2" name="Sr" placeholder="Sr">
+    
+  </div>
+   <div class="form-group">
+    <label for="formGroupExampleInput2">The total contribution of net foreign capital inflows.</label>
+    <input type="number" class="form-control" id="formGroupExampleInput2" name="Sf" placeholder="Sf">
+    
+  </div>
+	
+<p></p>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
+    <p></p>
+    <p class="copyright">
+     <a href="http://localhost:8080/My_Portfolio/index.html#0" >Designed by Andrea Seguya</a>
+    </p>
+  </form>
+</div>
+
+
+
+
+
+</body>
+</html>

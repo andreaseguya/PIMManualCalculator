@@ -1,0 +1,120 @@
+;<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>NPV Calculator</title>
+<link href="data:image/x-icon;base64,AAABAAEAEBAQAAAAAAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAvy5gAAAAAADMAKwAyy5gAM8uYAF/LmwAyzJkAM8yZADUALQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAERERERERERERERERERERERERAAAAARERERABEREAEREREBISEhAREREQEREREBERERASEhIQEREREBERERAREREQEhISEBERERAREREQEREREBgiIhAREREQEiIiEBERERABEREAEREREWc0UAERERERERERERERERERERERERH//wAA//8AAPAfAADnzwAA6q8AAO/vAADqrwAA7+8AAOqvAADv7wAA6C8AAOgvAADnzwAA8B8AAP//AAD//wAA" rel="icon" type="image/x-icon" />
+<link rel="stylesheet" href="http://localhost:8080/PIMCalculator/IRR.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Raleway:200'>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+<script type="text/javascript" src="jquery-1.9.js"></script>
+ <script>
+       //generating new boxes
+ 	var generateTextBoxes = function( qty, container ) {
+            if (container) {
+                for (var i = 1; i <= qty; i++ ) {
+                    $('<label for="box-'+i+'">Enter Net Cash Flow for Year '+i+'</label>&nbsp;<input id="box-'+i+'" name="box-'+i+'" type="number" class="form-control"  /><p>"').appendTo( container );
+                }
+            }
+        }
+        //putting new boxes in the div
+        var init = function() {
+            $('#btnGenBoxes').on('click', function() {
+                generateTextBoxes( $('#box-0').val(), $('#putThemHere') );
+            });
+        }
+        //store box values in an array.
+        function Send() {
+      var array = [];
+      for (var i = 1; i <= 10; i++) {
+        var value = $("#box-" + i).val();
+        //using push to send values to an array
+        array.push(value);
+
+      }
+      alert(array);
+    }
+        
+        //to clear the div when reset is clicked
+        function clearBox(elementID)
+        {
+            document.getElementById(elementID).innerHTML = "";
+        }
+       
+        window.onload = init;
+    </script>
+    <style>
+   button{
+	 cursor: pointer;
+  width: 200px;
+   border-radius: 10px;
+  border: 1px solid #fff;
+  background: #58d;
+  color: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+  font-size: 15px;
+    box-shadow: 0 0 20px 5px rgba(100, 100, 255, 0.4);
+    
+}
+button:hover{
+	background: #ccf;
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+}
+button:active{
+	 box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+img{
+ border-radius: 10px;
+  border: 1px solid #fff;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+    </style>
+</head>
+<body>
+<div class=container>
+<form id=boxlayout action="NPVServlet" method="post">
+<h1>NPV Calculator</h1>
+<p>
+<p><img src="images/NPV%20image.PNG" alt="Model Equation" width= 200px height=100px /> </p>
+<div>
+    <label>Enter a value for initial investment</label>
+    <input type="number" class="form-control" name="I" min="0" max="999999999" placeholder="Please enter a positive number" >
+  </div>
+  <p></p>
+  	<div>
+    <label>Discount rate as a percentage</label>
+    <input type="number" class="form-control" name="r" max="100" min="0" >
+  </div>
+   
+   <p></p>
+   <p></p>
+    <label  for="box-0">Number of years that will have a net cash flow </label> &nbsp; <br>
+   <div class="input-group mb-3">
+   <input type="number" id="box-0" name="box-0" class=form-control name="numOfYears" min="1" max=""/> 
+     <div class="input-group-append">
+    <button class="btn btn-outline-primary" type="button" id="btnGenBoxes" value="Geneate text boxes">Generate years</button>
+  </div>
+   </div>
+    
+ 
+    <div id="putThemHere"></div>
+   
+  	<button type="reset" onclick="clearBox('putThemHere')">Reset</button>
+     <button name="submit" type="submit" data-submit="...Sending" onclick="Send();">Submit</button> 
+</form>
+
+
+
+
+</div>
+</body>
+</html>
